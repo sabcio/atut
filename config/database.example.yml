@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: atut_development
+  pool: 5
+  username: atut
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: atut_test
+  pool: 5
+  username: atut
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: atut_production
+  pool: 5
+  username: atut
+  password:

@@ -27,10 +27,13 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/database.yml #{latest_release}/config/database.yml"
     run "ln -nfs #{shared_path}/thin.yml #{latest_release}/thin.yml"
     run "ln -nfs #{shared_path}/setup_mail.rb #{latest_release}/config/initializers/setup_mail.rb"
+    run "ln -nfs #{shared_path}/assets #{latest_release}/public/assets"
+    run "ln -nfs #{shared_path}/spree #{latest_release}/public/spree"
   end
 end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
+before 'thin:restart', 'assets:precompile'
 
 # Override the restart task to do something better
 deploy.task :restart, :roles => :app do
@@ -45,6 +48,13 @@ end
 deploy.task :stop, :roles => :app do
   deploy.web.disable
   thin.stop
+end
+
+namespace :assets do
+  desc "Compile assets"
+  task :precompile, :roles => :app do
+    run "cd #{current_path}; bundle exec rake assets:precompile;"
+  end
 end
 
 # Thin tasks

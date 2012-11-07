@@ -2,7 +2,7 @@
 
 A ecommerce project using [Spree](http://spreecommerce.com/) for Zarządzanie projektami w handlu elektornicznym.
 
-## Getting started 
+## Getting started
 
 After install rubies install bundler gem:
 
@@ -22,6 +22,14 @@ Optionally add some sample Spree products, categories, orders with:
 
 Now you can start application with:
 
-    bundle exec rails server 
+    bundle exec rails server
 
 Open ```http://localhost:3000/``` with web browser
+
+## Deploying
+
+First, make sure you gave you ssh public key to admin, so you have access to our server.
+
+Then deploy you application with: ```cap deploy```
+
+When we will have production environment ```cap production deploy```

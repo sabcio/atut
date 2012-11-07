@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'spree', '1.2.0'
 gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise'
 gem 'therubyracer', :platforms => :ruby
+gem 'spree_i18n', :git => 'git://github.com/spree/spree_i18n.git'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

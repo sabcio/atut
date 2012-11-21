@@ -1,0 +1,10 @@
+<% if get_recently_viewed_products.any? %>
+  <div id="recently_viewed" data-hook>
+    <h2 class="product-section-title">Ostatnio oglądane</h2>
+    <ul id="recently_viewed_products">
+      <% get_recently_viewed_products.each do |p| %>
+        <li><%= link_to p.name, p %></li>
+      <% end -%>
+    </ul>
+  </div>
+<% end %>

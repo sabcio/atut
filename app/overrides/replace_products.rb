@@ -6,7 +6,9 @@ Deface::Override.new(:virtual_path => %q{spree/shared/_products},
                           :closing_selector => %q{},
                           :text => %q{<% @body_id = 'product-list' %>
 
-<%= render 'spree/shared/product_banner' %>
+<%= content_for :banner do %>
+  <%= image_tag "store/taxon/accessories-bg.jpg", :alt => "Satellite Radios" %>
+<% end %>
 
 <div class="list" id="products" data-hook>
 <% products.each do |product| %>

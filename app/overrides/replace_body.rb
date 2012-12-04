@@ -7,7 +7,7 @@ Deface::Override.new(:virtual_path => %q{spree/layouts/spree_application},
                           :text => %q{<body id="<%= (@body_id == 'signup' ? 'checkout' : @body_id) || controller.controller_name %>">
     <div id="container">
         <header>
-          <%= link_to image_tag("store/logo.png", :width => "240", :alt => "Atut", :id => "logo"), root_url %>
+          <%= link_to image_tag("store/logo.png", :width => "240", :alt => "Atut", :id => "logo", :style => "top: -10px"), root_url %>
           <form action="#" >
           </form>
           <%= form_tag products_url, :method => :get do %>

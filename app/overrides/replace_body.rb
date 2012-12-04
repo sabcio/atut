@@ -16,10 +16,10 @@ Deface::Override.new(:virtual_path => %q{spree/layouts/spree_application},
           <nav>
             <%= link_to "produkty", products_path %>
             <% if current_user %>
-              <%= link_to t('my_account'), account_path, :class => "cart" %>
-              <%= link_to t('logout'), destroy_user_session_path, :class => "cart" %>
+              <%= link_to "Moje konto", account_path, :class => "cart" %>
+              <%= link_to "Wyloguj", destroy_user_session_path, :class => "cart" %>
             <% else %>
-              <%= link_to t('log_in'), login_path, :class => "cart" %>
+              <%= link_to "Zaloguj się", login_path, :class => "cart" %>
             <% end %>
             <%= link_to_cart %>
           </nav>

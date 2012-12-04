@@ -1,3 +1,5 @@
+# -*- encoding : utf-8 -*-
+
 Deface::Override.new(:virtual_path => %q{spree/checkout/registration},
                           :name => %q{replace_checkout_registration},
                           :replace => %q{#registration},
@@ -8,8 +10,8 @@ Deface::Override.new(:virtual_path => %q{spree/checkout/registration},
     <%= render "spree/shared/error_messages", :target => @order %>
     <div id="tabs" role="tabs">
       <ul>
-        <li class='active'><span class="number">1</span><span class="title">Create an Account</span></li>
-        <li><span class="number">2</span><span class="title">Your Address</span></li>
+        <li class='active'><span class="number">1</span><span class="title">Stwórz konto</span></li>
+        <li><span class="number">2</span><span class="title">Dane adresowe</span></li>
         <li><span class="number">3</span><span class="title">Shipping Options</span></li>
         <li><span class="number">4</span><span class="title">Payment Options</span></li>
         <li><span class="number">5</span><span class="title">Place Order</span></li>
@@ -17,8 +19,8 @@ Deface::Override.new(:virtual_path => %q{spree/checkout/registration},
     </div>
     <div id="content" role="content">
       <div id="existing-customer">
-        <h2>Existing Customers</h2>
-        <p>If you've already registered for an account on you can sign in here:</p>
+        <h2>Istniejący klienci</h2>
+        <p>Jeżeli jesteś już zarejestrowany możesz zalogować się tutaj:</p>
         <%= render :partial => 'spree/shared/login' %>
       </div>
 

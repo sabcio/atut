@@ -1,6 +1,7 @@
 Deface::Override.new(:virtual_path => %q{spree/orders/_form},
                           :name => %q{replace_cart_detail},
                           :replace => %q{#cart-detail[data-hook]},
+                          :disabled => true,
                           :text => %q{<table id="cart-detail" data-hook>
   <thead>
     <tr data-hook="cart_items_headers">

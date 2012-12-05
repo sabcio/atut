@@ -1,9 +1,11 @@
+# -*- encoding : utf-8 -*-
+
 Deface::Override.new(:virtual_path => %q{spree/checkout/_address},
                           :name => %q{replace_billing},
                           :replace => %q{#billing[data-hook]},
                           :text => %q{
 <div id="content" role="content">
-  <h2>Your Billing Information</h2>
+  <h2>Dane do płatności</h2>
   <fieldset id="billing" data-hook>
   <%= form.fields_for :bill_address do |bill_form| %>
     <legend><%= t(:billing_address) %></legend>
@@ -86,12 +88,12 @@ Deface::Override.new(:virtual_path => %q{spree/checkout/_address},
 </fieldset>
   <hr/>
 
-  <h2>Your Shipping Information</h2>
+  <h2>Dane do wysyłki</h2>
   <fieldset id="shipping" data-hook>
   <%= form.fields_for :ship_address do |ship_form| %>
     <legend><%= t(:shipping_address) %></legend>
     <p class="field checkbox" data-hook="use_billing">
-      <%= check_box_tag 'order[use_billing]', '1', (!(@order.bill_address.empty? && @order.ship_address.empty?) && @order.bill_address.eql?(@order.ship_address)) %> 
+      <%= check_box_tag 'order[use_billing]', '1', (!(@order.bill_address.empty? && @order.ship_address.empty?) && @order.bill_address.eql?(@order.ship_address)) %>
       <%= label_tag :order_use_billing, t(:use_billing_address), :id => 'use_billing' %>
     </p>
     <div class="inner" data-hook="shipping_inner">
@@ -171,5 +173,5 @@ Deface::Override.new(:virtual_path => %q{spree/checkout/_address},
     </div>
   <% end %>
 </fieldset>
-  <div class="submit"><button type="submit" class="blue">Continue</button></div>
+  <div class="submit"><button type="submit" class="blue">Dalej</button></div>
 </div>})

@@ -12,6 +12,8 @@ Spree.config do |config|
   config.site_name = "Atut"
   config.allow_ssl_in_staging    = false
   config.allow_ssl_in_production = false
+
+  config.address_requires_state = false
 end
 
 Spree.user_class = "Spree::User"

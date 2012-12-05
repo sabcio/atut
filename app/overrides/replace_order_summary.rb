@@ -4,8 +4,7 @@ Deface::Override.new(:virtual_path => %q{spree/checkout/_summary},
                           :text => %q{<div id="aside" role="aside">
   <div id="order" role="order">
 
-    <h3><%= t(:order_summary) %></h3>
-
+    <h3>Podsumowanie</h3>
     <table class="items">
       <% for line_item in @order.line_items %>
         <% variant = line_item.variant %>
@@ -18,10 +17,6 @@ Deface::Override.new(:virtual_path => %q{spree/checkout/_summary},
     </table>
 
     <table class="total">
-      <tr>
-        <th>Subtotal</th>
-        <td><%= number_to_currency @order.item_total %></td>
-      </tr>
       <% @order.adjustments.each do |adjustment| %>
         <tr>
           <th><%= adjustment.label %></th>
@@ -29,7 +24,7 @@ Deface::Override.new(:virtual_path => %q{spree/checkout/_summary},
         </tr>
       <% end %>
       <tr class="total">
-        <th>Total</th>
+        <th>Suma</th>
         <td><%= number_to_currency @order.total %></td>
       </tr>
     </table>

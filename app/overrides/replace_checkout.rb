@@ -1,3 +1,5 @@
+# -*- encoding : utf-8 -*-
+
 Deface::Override.new(:virtual_path => %q{spree/checkout/edit},
                           :name => %q{replace_checkout},
                           :replace => %q{#checkout[data-hook]},
@@ -9,11 +11,9 @@ Deface::Override.new(:virtual_path => %q{spree/checkout/edit},
     <%= render "spree/shared/error_messages", :target => @order %>
     <div id="tabs" role="tabs">
       <ul>
-        <li><span class="number">1</span><span class="title">Create an Account</span></li>
-        <li <%= @order.address?  && controller.action_name != "registration" ? "class='active'" : "" %>><span class="number">2</span><span class="title">Your Address</span></li>
-        <li <%= @order.delivery?  && controller.action_name != "registration" ? "class='active'" : "" %>><span class="number">3</span><span class="title">Shipping Options</span></li>
-        <li <%= @order.payment?  && controller.action_name != "registration" ? "class='active'" : "" %>><span class="number">4</span><span class="title">Payment Options</span></li>
-        <li <%= @order.confirm? && controller.action_name != "registration" ? "class='active'" : "" %>><span class="number">5</span><span class="title">Place Order</span></li>
+        <li><span class="number">1</span><span class="title">Stwórz konto</span></li>
+        <li <%= (@order.address? || @order.payment? || @order.delivery?) && controller.action_name != "registration" ? "class='active'" : "" %>><span class="number">2</span><span class="title">Adres & Wysyłka</span></li>
+        <li <%= @order.confirm? && controller.action_name != "registration" ? "class='active'" : "" %>><span class="number">3</span><span class="title">Złóż zamówienie</span></li>
       </ul>
     </div>
     <%= form_for @order, :url => update_checkout_path(@order.state), :html => { :id => "checkout_form_#{@order.state}" } do |form| %>

@@ -11,10 +11,8 @@ Deface::Override.new(:virtual_path => %q{spree/checkout/registration},
     <div id="tabs" role="tabs">
       <ul>
         <li class='active'><span class="number">1</span><span class="title">Stwórz konto</span></li>
-        <li><span class="number">2</span><span class="title">Dane adresowe</span></li>
-        <li><span class="number">3</span><span class="title">Shipping Options</span></li>
-        <li><span class="number">4</span><span class="title">Payment Options</span></li>
-        <li><span class="number">5</span><span class="title">Place Order</span></li>
+        <li><span class="number">2</span><span class="title">Adres & Wysyłka</span></li>
+        <li><span class="number">3</span><span class="title">Złóż zamówienie</span></li>
       </ul>
     </div>
     <div id="content" role="content">
@@ -32,7 +30,7 @@ Deface::Override.new(:virtual_path => %q{spree/checkout/registration},
       <% if Spree::Config[:allow_guest_checkout] %>
         <div id="guest_checkout" data-hook class="columns omega eight">
           <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
-          <h2><%= t(:guest_user_account) %></h2>
+          <h2>Kupuj jako gość</h2>
           <%= form_for @order, :url => update_checkout_registration_path, :method => :put, :html => { :id => 'checkout_form_registration' } do |f| %>
             <p>
               <%= f.label :email, t(:email) %><br />

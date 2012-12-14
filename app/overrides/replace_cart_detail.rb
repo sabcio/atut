@@ -5,11 +5,11 @@ Deface::Override.new(:virtual_path => %q{spree/orders/_form},
   <thead>
     <tr data-hook="cart_items_headers">
       <th colspan="2"><%= t("item") %></th>
-      <th><%= t("price") %></th>
+      <th style="width: 90px"><%= t("price") %></th>
       <th>&nbsp;</th>
       <th><%= t("qty") %></th>
       <th>&nbsp;</th>
-      <th><%= t("total") %></th>
+      <th style="width: 90px"><%= t("total") %></th>
       <th>&nbsp;</th>
     </tr>
   </thead>

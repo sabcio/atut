@@ -21,7 +21,7 @@ Deface::Override.new(:virtual_path => %q{spree/users/show},
         <td><%= link_to order.number, order_url(order) %></td>
         <td class="normal"><%=order.created_at.to_date%></td>
         <td class="normal"><%= t(order.state).titleize %></td>
-        <td class="normal"><%= order.shipment_state.capitalize %></td>
+        <td class="normal"><%= t("shipment_states.#{order.shipment_state}").titleize %></td>
         <td class="normal"><%= number_to_currency order.total %></td>
       </tr>
     <% end %>

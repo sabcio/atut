@@ -1,20 +1,22 @@
+# -*- encoding : utf-8 -*-
+
 Deface::Override.new(:virtual_path => %q{spree/orders/show},
                           :name => %q{replace_orders_show},
                           :replace => %q{#order[data-hook]},
                           :text => %q{<% @body_id = 'cart' %>
 
 <div id="content" role="content">
-  <h1>Order details</h1>
+  <h1>Szczegóły zamówienia</h1>
 
   <table id="cart-detail">
     <thead>
       <tr>
         <th colspan="2"><%= t("item") %></th>
-        <th><%= t("price") %></th>
+        <th style="width: 90px"><%= t("price") %></th>
         <th>&nbsp;</th>
         <th><%= t("qty") %></th>
         <th>&nbsp;</th>
-        <th><%= t("total") %></th>
+        <th style="width: 90px"><%= t("total") %></th>
       </tr>
     </thead>
     <tbody id="line_items">
@@ -50,24 +52,24 @@ Deface::Override.new(:virtual_path => %q{spree/orders/show},
         </tr>
       <% end %>
       <tr class="totals">
-        <td colspan="6">Item Subtotal</td>
-        <td class="totals">
+        <td colspan="6" style="padding-right: 10px">Suma produkty</td>
+        <td class="totals" style="text-align: left">
           <%= number_to_currency @order.item_total %>
         </td>
       </tr>
       <% @order.adjustments.each do |adjustment| %>
         <tr class="totals">
-          <td colspan="6">
+          <td colspan="6" style="padding-right: 10px">
             <%= adjustment.label %>
           </td>
-          <td class="totals">
+          <td class="totals" style="text-align: left">
             <%= number_to_currency adjustment.amount %>
           </td>
         </tr>
       <% end %>
       <tr class="totals">
-        <td colspan="6">Total</td>
-        <td class="totals">
+        <td colspan="6" style="padding-right: 10px">Suma</td>
+        <td class="totals" style="text-align: left">
           <%= number_to_currency @order.total %>
         </td>
       </tr>
@@ -76,7 +78,7 @@ Deface::Override.new(:virtual_path => %q{spree/orders/show},
 
   <p class="actions">
     <%=link_to t('back_to_store'), root_path, :class => 'continue' %> &nbsp;
-    or &nbsp;
+    lub &nbsp;
     <%= link_to t("my_account"), account_path, :class => 'button' %>
   </p>
 

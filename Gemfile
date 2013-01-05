@@ -29,3 +29,16 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-ext'
 end
+
+
+group :test, :development do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'shoulda-matchers'
+  gem 'fakeweb'
+  gem 'timecop'
+end

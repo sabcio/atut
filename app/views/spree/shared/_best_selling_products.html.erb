@@ -3,7 +3,7 @@
     <h2 class="product-section-title">Top 10</h2>
     <ul id="best_selling_products">
       <% Spree::Product.best_selling_variants.each do |v| %>
-        <li><%= link_to v[0].product.name, [v[0].product] %>
+        <li><%= link_to v[0].name, [v[0]] %>
           (<%= v[1] %>)</li>
       <% end -%>
     </ul>
